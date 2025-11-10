@@ -37,7 +37,7 @@ Thanks for your interest in improving this skill! Contributions are welcome and 
 
 **New to GitHub?** No problem! You don't need to be a developer to contribute. Here are simple ways to share your expertise:
 
-### Option 1: Use GitHub Issues (No Technical Skills Required)
+### Option 1: Open an Issue
 
 1. **Go to the repository** on GitHub
 2. **Click the "Issues" tab** at the top
