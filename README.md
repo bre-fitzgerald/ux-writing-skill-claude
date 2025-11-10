@@ -137,7 +137,7 @@ This skill can serve as:
 
 ## Credits
 
-Built by [Chris Greer](https://github.com/yourusername), Staff Content Designer at Stripe, based on established UX writing principles from:
+Built by [Christopher Greer](https://www.linkedin.com/in/christopher-greer/), Staff Content Designer at Stripe, based on established UX writing principles from:
 
 - Content Design by Sarah Richards
 - Strategic Writing for UX by Torrey Podmajersky  

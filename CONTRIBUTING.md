@@ -33,6 +33,69 @@ Thanks for your interest in improving this skill! Contributions are welcome and 
 - Industry-specific standards
 - Research citations
 
+## For Non-Technical Contributors
+
+**New to GitHub?** No problem! You don't need to be a developer to contribute. Here are simple ways to share your expertise:
+
+### Option 1: Open an Issue
+
+1. **Go to the repository** on GitHub
+2. **Click the "Issues" tab** at the top
+3. **Click the green "New issue" button**
+4. **Describe your contribution**:
+   - Paste your suggested text or example
+   - Explain what it improves or adds
+   - Include any context that's helpful
+5. **Click "Submit new issue"**
+
+That's it! A maintainer will review and incorporate your contribution.
+
+### Option 2: Edit Files Directly on GitHub
+
+You can edit files right in your browser without installing anything:
+
+1. **Navigate to the file you want to edit** (like `examples/real-world-improvements.md`)
+2. **Click the pencil icon** (✏️) in the top right corner
+3. **Make your changes** in the editor
+4. **Scroll down** to the "Propose changes" section
+5. **Write a brief description** of what you changed
+6. **Click "Propose changes"** (green button)
+7. **Click "Create pull request"** on the next screen
+
+GitHub will handle the technical parts automatically. A maintainer will review your changes and merge them.
+
+### Option 3: Send It Directly
+
+If GitHub feels overwhelming, you can:
+
+- **Email your contribution** to the maintainer (see README for contact)
+- **Share a Google Doc** with your suggested additions
+- **Post in community channels** where this skill is discussed
+
+Someone will help get your contribution into the repository.
+
+### What Makes a Good Contribution?
+
+Whether you're submitting an issue or editing directly:
+
+- **Be specific**: Instead of "add more examples," share the actual example
+- **Explain the value**: Why is this helpful? What problem does it solve?
+- **Keep it realistic**: Use examples from actual products when possible
+- **Follow the existing format**: Look at similar content and match the style
+
+### Don't Worry About Perfection
+
+Submit your idea even if:
+- You're not sure about the formatting
+- Your example isn't polished yet
+- You're uncertain if it fits
+
+Maintainers can help refine it. The hard part is having the expertise — you have that!
+
+### Need Help?
+
+Stuck on something? Open an issue with the title "Help: [what you need]" and describe where you're stuck. The community is here to help.
+
 ## Contribution Guidelines
 
 ### Content Standards
