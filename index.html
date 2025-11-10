@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -35,12 +36,56 @@
             font-weight: 400;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            position: relative;
+        }
+
+        /* Background pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(26, 22, 20, 0.03) 79px, rgba(26, 22, 20, 0.03) 80px),
+                repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(26, 22, 20, 0.03) 79px, rgba(26, 22, 20, 0.03) 80px);
+        }
+
+        .symbol-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.08;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            line-height: 80px;
+            letter-spacing: 80px;
+            color: var(--ink);
+            overflow: hidden;
+        }
+
+        .symbol-row {
+            white-space: nowrap;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
         }
 
         /* Header */
@@ -535,9 +580,126 @@
         .feature-card li:hover {
             color: var(--ink);
         }
+
+        /* Draggable Art Window */
+        .art-window {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: white;
+            border: 1px solid var(--border-dark);
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(26, 22, 20, 0.15);
+            overflow: hidden;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .art-window-header {
+            padding: 12px 16px;
+            background: var(--cream);
+            border-bottom: 1px solid var(--border);
+            cursor: move;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .art-window-header:active {
+            cursor: grabbing;
+        }
+
+        .art-window-title {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--ink-light);
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+
+        .art-window-close {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--ink-muted);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream);
+            font-size: 14px;
+            line-height: 1;
+            transition: background 0.2s ease;
+        }
+
+        .art-window-close:hover {
+            background: var(--ink);
+        }
+
+        .art-window-content {
+            flex: 1;
+            overflow: hidden;
+            background: white;
+        }
+
+        .art-window-content canvas {
+            display: block !important;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .art-toggle {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--ink);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream);
+            font-size: 24px;
+            box-shadow: 0 8px 24px rgba(26, 22, 20, 0.2);
+            transition: all 0.3s ease;
+            z-index: 999;
+            font-family: 'Courier New', monospace;
+        }
+
+        .art-toggle:hover {
+            background: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .art-toggle.hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .art-window {
+                width: 90vw;
+                height: 90vw;
+                max-width: 400px;
+                max-height: 400px;
+            }
+
+            .art-toggle {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Background symbol pattern -->
+    <div class="symbol-pattern" id="symbol-pattern"></div>
+
     <header>
         <div class="container">
             <h1>UX Writing</h1>
@@ -707,5 +869,214 @@
             </nav>
         </div>
     </footer>
+
+    <!-- Draggable Art Window -->
+    <div class="art-window" id="art-window" style="top: 100px; left: 100px; display: none;">
+        <div class="art-window-header" id="art-window-header">
+            <div class="art-window-title">Organic flow lines</div>
+            <button class="art-window-close" onclick="closeArtWindow()">×</button>
+        </div>
+        <div class="art-window-content" id="art-canvas-container"></div>
+    </div>
+
+    <!-- Toggle button -->
+    <button class="art-toggle" id="art-toggle" onclick="toggleArtWindow()">{ }</button>
+
+    <script>
+        // Background symbol pattern generation
+        function generateSymbolPattern() {
+            const pattern = document.getElementById('symbol-pattern');
+            const symbols = ['"', "'", '{', '}', '[', ']', '(', ')', '<', '>', ';', ':', ',', '.'];
+            const rows = Math.ceil(window.innerHeight / 80) + 1;
+            const cols = Math.ceil(window.innerWidth / 80) + 1;
+
+            let html = '';
+            for (let i = 0; i < rows; i++) {
+                let row = '<div class="symbol-row">';
+                for (let j = 0; j < cols; j++) {
+                    const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+                    row += symbol;
+                }
+                row += '</div>';
+                html += row;
+            }
+            pattern.innerHTML = html;
+        }
+
+        generateSymbolPattern();
+
+        // Draggable window functionality
+        let isDragging = false;
+        let currentX;
+        let currentY;
+        let initialX;
+        let initialY;
+        let xOffset = 0;
+        let yOffset = 0;
+
+        const artWindow = document.getElementById('art-window');
+        const artWindowHeader = document.getElementById('art-window-header');
+        const artToggle = document.getElementById('art-toggle');
+
+        artWindowHeader.addEventListener('mousedown', dragStart);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', dragEnd);
+
+        // Touch events for mobile
+        artWindowHeader.addEventListener('touchstart', dragStart);
+        document.addEventListener('touchmove', drag);
+        document.addEventListener('touchend', dragEnd);
+
+        function dragStart(e) {
+            if (e.type === 'touchstart') {
+                initialX = e.touches[0].clientX - xOffset;
+                initialY = e.touches[0].clientY - yOffset;
+            } else {
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset;
+            }
+
+            if (e.target === artWindowHeader || artWindowHeader.contains(e.target)) {
+                isDragging = true;
+            }
+        }
+
+        function drag(e) {
+            if (isDragging) {
+                e.preventDefault();
+
+                if (e.type === 'touchmove') {
+                    currentX = e.touches[0].clientX - initialX;
+                    currentY = e.touches[0].clientY - initialY;
+                } else {
+                    currentX = e.clientX - initialX;
+                    currentY = e.clientY - initialY;
+                }
+
+                xOffset = currentX;
+                yOffset = currentY;
+
+                setTranslate(currentX, currentY, artWindow);
+            }
+        }
+
+        function dragEnd(e) {
+            initialX = currentX;
+            initialY = currentY;
+            isDragging = false;
+        }
+
+        function setTranslate(xPos, yPos, el) {
+            el.style.transform = `translate(${xPos}px, ${yPos}px)`;
+        }
+
+        function toggleArtWindow() {
+            const isHidden = artWindow.style.display === 'none';
+            artWindow.style.display = isHidden ? 'flex' : 'none';
+            artToggle.textContent = isHidden ? '×' : '{ }';
+
+            if (isHidden && !window.artInitialized) {
+                initializeArt();
+                window.artInitialized = true;
+            }
+        }
+
+        function closeArtWindow() {
+            artWindow.style.display = 'none';
+            artToggle.textContent = '{ }';
+        }
+
+        // p5.js art initialization
+        let artParams = {
+            seed: 42,
+            lineCount: 15,
+            pointsPerLine: 250,
+            noiseScale: 0.003,
+            curveMagnitude: 3,
+            strokeWeight: 0.8,
+            spread: 0.7,
+            colorPalette: ['#d4a574', '#4a4540', '#8a857f'] // Site colors
+        };
+
+        function initializeArt() {
+            new p5(function(p) {
+                p.setup = function() {
+                    let canvas = p.createCanvas(400, 400);
+                    canvas.parent('art-canvas-container');
+                    drawArt(p);
+                };
+
+                function drawArt(p) {
+                    p.randomSeed(artParams.seed);
+                    p.noiseSeed(artParams.seed);
+                    p.background(250, 249, 245);
+
+                    let centerX = p.width / 2;
+                    let centerY = p.height / 2;
+
+                    for (let l = 0; l < artParams.lineCount; l++) {
+                        let lineProgress = l / artParams.lineCount;
+                        let baseAngle = lineProgress * p.TWO_PI + p.random(-0.3, 0.3);
+                        let radiusVariation = p.random(0.3, 1) * artParams.spread;
+
+                        let colorIndex = p.floor(p.random(3));
+                        let lineColor = p.color(artParams.colorPalette[colorIndex]);
+                        lineColor.setAlpha(p.random(40, 90));
+
+                        p.stroke(lineColor);
+                        p.strokeWeight(artParams.strokeWeight);
+                        p.noFill();
+
+                        p.beginShape();
+
+                        let startDist = p.random(30, 120) * radiusVariation;
+                        let sx = centerX + p.cos(baseAngle) * startDist;
+                        let sy = centerY + p.sin(baseAngle) * startDist;
+
+                        p.curveVertex(sx, sy);
+                        p.curveVertex(sx, sy);
+
+                        let x = sx;
+                        let y = sy;
+                        let angle = baseAngle;
+
+                        for (let i = 0; i < artParams.pointsPerLine; i++) {
+                            let progress = i / artParams.pointsPerLine;
+
+                            let noiseVal1 = p.noise(x * artParams.noiseScale, y * artParams.noiseScale, artParams.seed * 0.01);
+                            let noiseVal2 = p.noise(x * artParams.noiseScale * 2, y * artParams.noiseScale * 2, artParams.seed * 0.01 + 100);
+                            let noiseVal3 = p.noise(x * artParams.noiseScale * 0.5, y * artParams.noiseScale * 0.5, artParams.seed * 0.01 + 200);
+
+                            let combinedNoise = noiseVal1 * 0.5 + noiseVal2 * 0.3 + noiseVal3 * 0.2;
+                            angle = combinedNoise * p.TWO_PI * 2;
+
+                            let dx = x - centerX;
+                            let dy = y - centerY;
+                            let distFromCenter = p.sqrt(dx * dx + dy * dy);
+                            let rotationalForce = p.atan2(dy, dx) + p.HALF_PI;
+                            angle += rotationalForce * 0.1 * p.sin(progress * p.PI);
+
+                            let stepSize = artParams.curveMagnitude * (1 + p.sin(progress * p.PI) * 0.5);
+                            x += p.cos(angle) * stepSize;
+                            y += p.sin(angle) * stepSize;
+
+                            x += p.random(-0.5, 0.5);
+                            y += p.random(-0.5, 0.5);
+
+                            p.curveVertex(x, y);
+
+                            if (x < -50 || x > p.width + 50 || y < -50 || y > p.height + 50) {
+                                break;
+                            }
+                        }
+
+                        p.curveVertex(x, y);
+                        p.curveVertex(x, y);
+                        p.endShape();
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 </html>
