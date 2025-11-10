@@ -142,6 +142,36 @@ Want your whole team to use this skill automatically?
 
 **Note**: Project skills only work when Claude Code is opened in that project folder.
 
+## Figma Integration
+
+**Review and improve UX copy directly from your Figma designs!**
+
+Connect this skill to Figma so Claude can analyze mockups, audit copy, and suggest improvements based on UX writing best practices. Perfect for:
+- Content designers reviewing flows before launch
+- Product teams iterating on copy in designs
+- Design QA and accessibility audits
+- Cross-platform consistency checks
+
+### Quick Start
+
+1. **Connect Figma to Claude Code** (one-time setup):
+   ```bash
+   claude mcp add --transport http figma https://mcp.figma.com/mcp
+   ```
+   Restart Claude Code and authenticate with Figma when prompted.
+
+2. **Share a Figma frame link** with Claude:
+   ```
+   Review the UX copy in this login screen:
+   https://www.figma.com/file/abc123/Design?node-id=123-456
+
+   Check for accessibility, clarity, and tone.
+   ```
+
+3. **Get instant feedback** with specific improvements based on the four quality standards.
+
+**📖 Full setup guide and workflows:** [docs/figma-integration.md](docs/figma-integration.md)
+
 ## Usage Examples
 
 ### Basic Usage
