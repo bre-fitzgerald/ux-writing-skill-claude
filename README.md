@@ -1,5 +1,8 @@
 # UX Writing Skill for Claude
 
+[![Run in Smithery](https://smithery.ai/badge/skills/content-designer)](https://smithery.ai/skills?ns=content-designer&utm_source=github&utm_medium=badge)
+
+
 > Scale content quality through AI-powered design system enforcement
 
 **🌐 [View Website](https://content-designer.github.io/ux-writing-skill/)**
