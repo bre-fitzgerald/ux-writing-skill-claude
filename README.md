@@ -169,13 +169,11 @@ Want your whole team to use this skill automatically?
 
 **Review and improve UX copy directly from your Figma designs!**
 
-Connect this skill to Figma through Claude Code to analyze mockups, audit copy, and suggest improvements based on UX writing best practices. Perfect for:
+Connect this skill to Figma through Claude Code or Codex to analyze mockups, audit copy, and suggest improvements based on UX writing best practices. Perfect for:
 - Content designers reviewing flows before launch
 - Product teams iterating on copy in designs
 - Design QA and accessibility audits
 - Cross-platform consistency checks
-
-**Note:** Figma integration is currently available for Claude Code via MCP. Codex CLI/IDE Figma integration support is being documented.
 
 ### Quick Start with Claude Code
 
@@ -195,7 +193,28 @@ Connect this skill to Figma through Claude Code to analyze mockups, audit copy, 
 
 3. **Get instant feedback** with specific improvements based on the four quality standards.
 
-**📖 Full setup guide:** [docs/claude-figma-integration.md](docs/claude-figma-integration.md)
+**📖 Full Claude Code setup guide:** [docs/claude-figma-integration.md](docs/claude-figma-integration.md)
+
+### Quick Start with Codex
+
+1. **Configure Codex MCP** - Add to `~/.codex/config.toml`:
+   ```toml
+   [features]
+   rmcp_client = true
+
+   [mcp_servers.figma]
+   url = "https://mcp.figma.com/mcp"
+   ```
+
+2. **Install and authenticate**:
+   ```bash
+   npm i -g @openai/codex
+   codex mcp login figma
+   ```
+
+3. **Restart your IDE** and test with a Figma Dev Mode link.
+
+**📖 Full Codex setup guide:** [docs/codex-figma-integration.md](docs/codex-figma-integration.md)
 
 ## Usage Examples
 
