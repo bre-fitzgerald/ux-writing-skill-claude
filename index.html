@@ -961,14 +961,22 @@
         <section class="integrations">
             <div class="container">
                 <h3 class="section-title">Figma integration</h3>
-                <p class="intro">Review and improve UX copy directly from your Figma designs using Claude Code. Perfect for content designers and product teams.</p>
+                <p class="intro">Review and improve UX copy directly from your Figma designs. Works with both Claude Code and Codex CLI/IDE. Perfect for content designers and product teams.</p>
 
-                <div class="integration-card" style="background: rgba(186, 205, 217, 0.08); border: 1px solid var(--border); padding: 48px; max-width: 800px; margin: 0 auto;">
-                    <h4>Claude Code + Figma MCP</h4>
-                    <code>claude mcp add --transport http figma https://mcp.figma.com/mcp</code>
-                    <p class="help-text">Share any Figma frame link with Claude Code to get instant UX writing feedback, accessibility audits, and specific improvements.</p>
-                    <p class="guide-link"><a href="https://github.com/content-designer/ux-writing-skill/blob/main/docs/claude-figma-integration.md">Read full setup guide →</a></p>
-                    <p style="color: var(--ink-muted); font-size: 14px; margin-top: 32px; font-style: italic;">Note: Codex CLI/IDE Figma integration documentation coming soon.</p>
+                <div class="feature-grid" style="margin-bottom: 0;">
+                    <div class="integration-card" style="background: rgba(186, 205, 217, 0.08); border: 1px solid var(--border); padding: 48px;">
+                        <h4>Claude Code + Figma MCP</h4>
+                        <code>claude mcp add --transport http figma https://mcp.figma.com/mcp</code>
+                        <p class="help-text">Share any Figma frame link with Claude Code to get instant UX writing feedback, accessibility audits, and specific improvements.</p>
+                        <p class="guide-link"><a href="https://github.com/content-designer/ux-writing-skill/blob/main/docs/claude-figma-integration.md">Read Claude setup guide →</a></p>
+                    </div>
+
+                    <div class="integration-card" style="background: rgba(186, 205, 217, 0.08); border: 1px solid var(--border); padding: 48px;">
+                        <h4>Codex + Figma MCP</h4>
+                        <p class="help-text" style="margin-top: 0; margin-bottom: 24px;">Configure Codex to connect with Figma MCP and review designs using Dev Mode links.</p>
+                        <p style="color: var(--ink-light); font-size: 15px; line-height: 1.6; margin-bottom: 24px;"><code style="background: transparent; padding: 0; font-size: 14px;">codex mcp login figma</code></p>
+                        <p class="guide-link"><a href="https://github.com/content-designer/ux-writing-skill/blob/main/docs/codex-figma-integration.md">Read Codex setup guide →</a></p>
+                    </div>
                 </div>
             </div>
         </section>

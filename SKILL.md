@@ -415,3 +415,4 @@ This skill includes:
 - **templates/empty-state-template.md**: Guide for creating helpful empty states
 - **templates/onboarding-flow-template.md**: Framework for designing clear onboarding experiences
 - **docs/claude-figma-integration.md**: Guide for using this skill with Claude Code and Figma MCP
+- **docs/codex-figma-integration.md**: Guide for using this skill with Codex CLI/IDE and Figma MCP
