@@ -64,7 +64,9 @@ This Agent Skill packages UX writing expertise into a system that Claude can app
 
 ### What You Need
 
-This skill works with **Claude Desktop**, **Claude Code**, and **OpenAI Codex**. Choose the installation method that matches your setup.
+This skill works with **Claude Desktop**, **Claude Code**, and **Codex** (CLI and IDE extensions). Choose the installation method that matches your setup.
+
+**Note:** This skill works with Codex CLI/IDE, not ChatGPT. ChatGPT cannot install or use skills.
 
 ### Quick Install (Claude Desktop)
 
@@ -110,9 +112,9 @@ Write an error message for when a payment fails
 
 Claude will apply UX writing best practices and create a clear, empathetic error message.
 
-### Install in Codex (OpenAI)
+### Install in Codex (CLI/IDE)
 
-If you're using OpenAI Codex, installation is straightforward:
+If you're using Codex CLI or IDE extensions, installation is straightforward:
 
 **Step 1: Download the Skill**
 
@@ -167,11 +169,13 @@ Want your whole team to use this skill automatically?
 
 **Review and improve UX copy directly from your Figma designs!**
 
-Connect this skill to Figma through Claude Code or ChatGPT to analyze mockups, audit copy, and suggest improvements based on UX writing best practices. Perfect for:
+Connect this skill to Figma through Claude Code to analyze mockups, audit copy, and suggest improvements based on UX writing best practices. Perfect for:
 - Content designers reviewing flows before launch
 - Product teams iterating on copy in designs
 - Design QA and accessibility audits
 - Cross-platform consistency checks
+
+**Note:** Figma integration is currently available for Claude Code via MCP. Codex CLI/IDE Figma integration support is being documented.
 
 ### Quick Start with Claude Code
 
@@ -191,30 +195,7 @@ Connect this skill to Figma through Claude Code or ChatGPT to analyze mockups, a
 
 3. **Get instant feedback** with specific improvements based on the four quality standards.
 
-**📖 Full Claude Code setup guide:** [docs/claude-figma-integration.md](docs/claude-figma-integration.md)
-
-### Quick Start with ChatGPT Figma App
-
-1. **Connect Figma to ChatGPT** (one-time setup):
-   - Open ChatGPT
-   - Click your profile → **Apps & connectors**
-   - Find **Figma** and click **Connect**
-   - Follow prompts to authenticate
-
-2. **Ask ChatGPT to review your designs**:
-   ```
-   Review the UX copy in this design:
-   https://www.figma.com/file/abc123/Design?node-id=123-456
-
-   Using UX writing best practices, check for:
-   - Button labels and clarity
-   - Error message quality
-   - Tone consistency
-   ```
-
-3. **Get instant feedback** based on the UX Writing Skill's quality standards.
-
-**📖 Full ChatGPT/Codex setup guide:** [docs/codex-figma-integration.md](docs/codex-figma-integration.md)
+**📖 Full setup guide:** [docs/claude-figma-integration.md](docs/claude-figma-integration.md)
 
 ## Usage Examples
 
@@ -265,7 +246,7 @@ This skill uses **model-invoked activation** — Claude and Codex automatically 
 
 The AI loads reference materials progressively, using only what's needed for your specific task to maintain efficient context usage.
 
-**In Codex**, you can also explicitly invoke the skill using `$ux-writing` or through the `/skills` command.
+**In Codex CLI/IDE**, you can also explicitly invoke the skill using `$ux-writing` or through the `/skills` command.
 
 ## What You'll Learn
 
@@ -331,7 +312,7 @@ Looking for more Agent Skills?
 - Learn about [Agent Skills architecture](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)
 - Read [best practices for authoring skills](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/best-practices)
 
-**For OpenAI Codex:**
+**For Codex (CLI/IDE):**
 - Explore [Codex Skills documentation](https://developers.openai.com/codex/skills/)
 - Learn how to [create custom skills](https://developers.openai.com/codex/skills/create-skill)
 - Join the [OpenAI Developer Community](https://community.openai.com/) to discuss skills
