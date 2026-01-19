@@ -1,4 +1,4 @@
-# Content Usability Checklist
+# Content usability checklist
 
 Use this checklist to evaluate UX text quality. Rate each criterion 0-10.
 
@@ -33,6 +33,7 @@ Use this checklist to evaluate UX text quality. Rate each criterion 0-10.
 - Most critical information first
 - Secondary details follow
 - Nice-to-know information last
+
 
 ## Purposeful
 
@@ -120,7 +121,8 @@ Use this checklist to evaluate UX text quality. Rate each criterion 0-10.
 - UI patterns applied consistently
 - Terminology documented in style guide
 
-## Scoring Guide
+
+## Scoring guide
 
 **9-10**: Excellent — Best practice example
 **7-8**: Good — Minor improvements possible
@@ -128,7 +130,8 @@ Use this checklist to evaluate UX text quality. Rate each criterion 0-10.
 **3-4**: Needs work — Significant problems
 **0-2**: Poor — Major revision required
 
-## How to Use This Checklist
+
+## How to use this checklist
 
 1. **Review individual pieces** — Evaluate specific UI strings, messages, or flows
 2. **Audit entire experiences** — Score major screens or user journeys
@@ -137,7 +140,8 @@ Use this checklist to evaluate UX text quality. Rate each criterion 0-10.
 5. **Build rationale** — Use scores to explain writing decisions
 6. **Focus efforts** — Identify lowest-scoring areas to improve first
 
-## Example Evaluation
+
+## Example evaluation
 
 **Text**: "An error occurred while processing your request. Please try again."
 
