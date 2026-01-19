@@ -1,132 +1,84 @@
-# Voice Chart Template
+# Braze voice chart
 
-A voice chart helps establish consistent brand personality across all UX text. Use this template to define your product's voice.
+Use this voice chart to establish consistent brand personality across all UX text. The Braze voice always reflects who we are—empowering, straightforward, and human. Our **tone** flexes depending on the context to support users in a range of situations.
 
-## Structure
+## Concept 1: empowering
 
-A voice chart contains three key elements for each brand concept:
-
-1. **Concept** — A core brand principle or value
-2. **Voice Characteristics** — Adjectives describing how the concept manifests in writing
-3. **Examples** — Concrete do/don't pairs showing the voice in action
-
-## Template
-
-### Concept 1: [Brand Principle]
-
-**Voice characteristics**: [Adjective 1], [Adjective 2], [Adjective 3]
-
-**Description**: [1-2 sentences explaining what this means for the writing]
-
+**Voice characteristics**: Confident, encouraging, informative
+**Description**: Braze gives users the confidence to take action. We explain the “why” and “how,” offer practical guidance, and make users feel capable—not overwhelmed. We respect their expertise while supporting continued growth.
 **Do**:
-- Example of text that embodies this concept
-- Another example showing this voice
+- “Send a test message to see how your campaign looks in the inbox.”
+- “To improve results, try adding more filters to your segment.”
 
-**Don't**:
-- Example of what to avoid
-- Counter-example that violates this voice
 
----
+**Don’t**:
+- “Run a test to check if it works.”
+- “Incorrect setup. Please fix before continuing.”
 
-### Concept 2: [Brand Principle]
 
-**Voice characteristics**: [Adjective 1], [Adjective 2], [Adjective 3]
+## Concept 2: straightforward
 
-**Description**: [1-2 sentences explaining what this means for the writing]
-
+**Voice characteristics**: Clear, concise, specific
+**Description**: We get to the point and use plain language. We provide just enough detail to help users succeed, and we’re specific about benefits and limits. We avoid fluff, filler, and vague marketing claims.
 **Do**:
-- Example of text that embodies this concept
-- Another example showing this voice
+- “Your campaign was sent to 12,415 users.”
+- “Only available in Canvas Flow.”
 
-**Don't**:
-- Example of what to avoid
-- Counter-example that violates this voice
+**Don’t**:
+- “You’ve successfully launched your campaign!”
+- “New editor exclusive feature you’re going to love.”
 
----
+## Concept 3: human
 
-### Concept 3: [Brand Principle]
-
-**Voice characteristics**: [Adjective 1], [Adjective 2], [Adjective 3]
-
-**Description**: [1-2 sentences explaining what this means for the writing]
-
+**Voice characteristics**: Conversational, respectful, transparent
+**Description**: We sound like people—never robotic, never overly casual. We write in plain English and with empathy. We acknowledge emotions without assuming them and are honest, especially when something goes wrong.
 **Do**:
-- Example of text that embodies this concept
-- Another example showing this voice
+- “Looks like this page isn’t available. Try refreshing or head back to the dashboard.”
+- “This prediction didn’t run. Try selecting a different event.”
 
-**Don't**:
-- Example of what to avoid
-- Counter-example that violates this voice
+**Don’t**:
+- “404 error: Page not found.”
+- “Prediction build failed. Invalid data.”
 
----
+## Implementation notes
 
-## Example: TAPP Transit System
+- Use sentence case for all UI elements—headings, buttons, links, and so on.
+- Use preferred terms such as:
+  - **add**, **accept**, **turn on**, **archive**, **personalize** (for Liquid-powered content)
+- Avoid terms such as:
+    - **enable/disable**, **kill**, **invalid**, **dismiss**, **whitelist/blacklist**
+- Use inclusive terms like **allowlist/blocklist**
+- Replace directional cues (“above,” “below”) with contextual ones (“in this section,” “on the next screen”)
 
-### Concept 1: Helpful
+## Tone guidance by situation
 
-**Voice characteristics**: Friendly, supportive, clear
+| Situation                | Goal                                                  | Tone                         |
+|--------------------------|--------------------------------------------------------|------------------------------|
+| Everyday tasks           | Help users complete work quickly and clearly          | Neutral, informative, clear  |
+| Learning something new   | Build user confidence with guidance and rationale     | Encouraging, helpful, polite |
+| Celebrations             | Acknowledge success in a warm and professional way    | Friendly, positive, sincere  |
+| New feature announcements| Explain value clearly, without overhyping             | Informative, optimistic      |
+| Errors and bad news      | Reassure and guide users to resolution                | Supportive, calm, clear      |
 
-**Description**: TAPP is a companion that helps riders navigate the transit system with confidence. We anticipate questions and provide clear guidance.
+## Real-world examples
 
-**Do**:
-- "Your bus arrives in 5 minutes at Bay St."
-- "Tap your card when you board and when you exit."
+### Everyday tasks
+**Do**: Campaign launched
+**Don’t**: You did it! Your campaign is live. 
 
-**Don't**:
-- "Arrival: 5 min"
-- "Payment required at entry and exit points."
+### Learning something new
+**Do**: Use test sends to preview your message before sending
+**Don’t**: Testing can triple your engagement
 
----
+### Celebrations
+**Do**: You launched your first campaign—great work.
+**Don’t**: We did it! Let’s celebrate.
 
-### Concept 2: Efficient
+### New feature announcements
+**Do**: Introducing Canvas Action Paths. Use them to guide users based on real-time behavior.
+**Don’t**: It’s simple! Just drag and drop it in
 
-**Voice characteristics**: Concise, direct, scannable
 
-**Description**: Riders are often in a hurry. We respect their time by being brief and front-loading important information.
-
-**Do**:
-- "Route delayed 10 minutes due to traffic"
-- "Transfer at Main St for Line 3"
-
-**Don't**:
-- "Due to unexpected traffic conditions, your route is experiencing delays of approximately 10 minutes"
-- "You can transfer to Line 3 if you get off at Main St"
-
----
-
-### Concept 3: Trustworthy
-
-**Voice characteristics**: Honest, transparent, reliable
-
-**Description**: Riders depend on TAPP to get where they need to go. We're upfront about problems and provide accurate information.
-
-**Do**:
-- "This route is currently unavailable. Use Route 42 instead."
-- "Your payment didn't go through. Update your card to continue."
-
-**Don't**:
-- "Service interruption on this route."
-- "Payment error. Try again."
-
----
-
-## Tips for Creating Your Voice Chart
-
-1. **Base it on brand values** — Review mission, vision, values, and personality
-2. **Use 3-5 concepts** — Enough to guide, not so many you can't remember
-3. **Be specific with examples** — Show actual interface text, not abstract descriptions
-4. **Test against real scenarios** — Apply to buttons, errors, and notifications
-5. **Share with your team** — Voice only works if everyone uses it consistently
-6. **Update as you learn** — Refine based on user research and team feedback
-
-## Common Voice Characteristics
-
-**Positive tones**: Friendly, encouraging, optimistic, warm, enthusiastic, cheerful, supportive, welcoming, inspiring
-
-**Neutral tones**: Professional, straightforward, clear, direct, informative, practical, matter-of-fact, efficient
-
-**Cautious/Serious tones**: Careful, thoughtful, measured, precise, formal, reserved, respectful
-
-**Personality traits**: Playful, witty, conversational, casual, technical, sophisticated, humble, confident, empowering
-
-Choose characteristics that align with your brand and serve your users' needs in context.
+### Errors and bad news
+**Do**: Not enough purchases in the last 14 days to build this prediction. Try selecting a different event.
+**Don’t**: Error: unable to build prediction. Insufficient data.
